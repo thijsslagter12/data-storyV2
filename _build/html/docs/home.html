@@ -1,0 +1,672 @@
+
+
+<!DOCTYPE html>
+
+
+<html >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Jupyter Book Tutorial &#8212; Jupyter Book Template</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'docs/home';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Example Notebook" href="notebook.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="None"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="#">
+  
+  
+  
+  
+  
+    <p class="title logo__title">Jupyter Book Template</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1 current active">
+                <a class="reference internal" href="#">
+                    Jupyter Book Tutorial
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="notebook.html">Example Notebook</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/yenchiah/jupyter-book-template" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/yenchiah/jupyter-book-template/issues/new?title=Issue%20on%20page%20%2Fdocs/home.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/docs/home.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Jupyter Book Tutorial</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#table-of-contents">Table of contents</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prerequisites">Prerequisites</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-install-conda">Step 1: Install conda</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-install-jupyter-book">Step 2: Install Jupyter Book</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-create-a-new-repository">Step 3: Create a new repository</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-4-build-the-book-locally">Step 4: Build the book locally</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-5-deploy-the-book-online">Step 5: Deploy the book online</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="jupyter-book-tutorial">
+<h1>Jupyter Book Tutorial<a class="headerlink" href="#jupyter-book-tutorial" title="Permalink to this headline">#</a></h1>
+<p>(Last updated: May 22, 2023)</p>
+<p>In this tutorial, we will teach you how to create a Jupyter book and deploy it online.
+This page is written in markdown, which also serves as an example.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This tutorial only mentions the basics.
+For more advanced usage of Jupyter Book, such as this special content block, check <a class="reference external" href="https://jupyterbook.org/en/stable/content/index.html">the Jupyter Book documentation</a> for more information.</p>
+</div>
+<section id="table-of-contents">
+<h2>Table of contents<a class="headerlink" href="#table-of-contents" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p><span class="xref myst">Prerequisites</span></p></li>
+<li><p><span class="xref myst">Step 1: Install conda</span></p></li>
+<li><p><span class="xref myst">Step 2: Install Jupyter Book</span></p></li>
+<li><p><span class="xref myst">Step 3: Create a new repository</span></p></li>
+<li><p><span class="xref myst">Step 4: Build the book locally</span></p></li>
+<li><p><span class="xref myst">Step 5: Deploy the book online</span></p></li>
+</ul>
+</section>
+<section id="prerequisites">
+<h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline">#</a></h2>
+<p><a name="pre"></a></p>
+<p>We will use <a class="reference external" href="https://pages.github.com">GitHub Pages</a> to deploy your compiled book, which means that you need to <a class="reference external" href="https://github.com/signup">register a GitHub account</a>.</p>
+<p>We assume that you have installed the environment that can edit and run Jupyter Notebook files.
+If you have not done so, check the <a class="reference external" href="https://jupyter.org">Jupyter website</a> for how to install the user interface and environment.</p>
+<p>You need a terminal (e.g., <a class="reference external" href="https://en.wikipedia.org/wiki/Bash_(Unix_shell)">Bash</a> or <a class="reference external" href="https://en.wikipedia.org/wiki/Z_shell">Zsh</a>) to work with Jupyter Book.
+If you are on Windows, install <a class="reference external" href="https://git-scm.com/">the git tool</a>, which should come with a terminal.
+If you are on Mac or Linux, the git tool is already installed, so you can just open the terminal and start typing commands.</p>
+<p>We expect that you have some basic understanding of using <code class="docutils literal notranslate"><span class="pre">git</span></code> for version control.
+If you are new to this idea, check <a class="reference external" href="https://github.com/git-guides">the git guide</a>.</p>
+</section>
+<section id="step-1-install-conda">
+<h2>Step 1: Install conda<a class="headerlink" href="#step-1-install-conda" title="Permalink to this headline">#</a></h2>
+<p><a name="s1"></a></p>
+<p>The first step is installing the conda virtual environment using <a class="reference external" href="https://docs.conda.io/en/main/miniconda.html">miniconda</a> or <a class="reference external" href="https://www.anaconda.com/">anaconda</a>.
+Pick either one of them and follow the instructions on the website to install conda so that you can use the <code class="docutils literal notranslate"><span class="pre">conda</span></code> command on your terminal.</p>
+<p>We recommend using miniconda since it is light-weighted, and you can avoid waiting for a long time to install many packages that may not be necessary.
+If you already have the conda environment ready on your machine, you can skip this step.</p>
+<p>For Mac users, you can also install miniconda using the <a class="reference external" href="https://brew.sh/">Homebrew</a> package manager:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>brew<span class="w"> </span>cask<span class="w"> </span>install<span class="w"> </span>miniconda
+<span class="nb">echo</span><span class="w"> </span><span class="s1">&#39;export PATH=&quot;/usr/local/Caskroom/miniconda/base/bin:$PATH&quot;&#39;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>~/.bash_profile
+<span class="nb">echo</span><span class="w"> </span><span class="s1">&#39;. /usr/local/Caskroom/miniconda/base/etc/profile.d/conda.sh&#39;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>~/.bash_profile
+<span class="nb">source</span><span class="w"> </span>~/.bash_profile
+</pre></div>
+</div>
+</section>
+<section id="step-2-install-jupyter-book">
+<h2>Step 2: Install Jupyter Book<a class="headerlink" href="#step-2-install-jupyter-book" title="Permalink to this headline">#</a></h2>
+<p><a name="s2"></a></p>
+<p>Now, create a new conda environment using the command below. We need to install Jupyter Book in the conda environment.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>create<span class="w"> </span>-n<span class="w"> </span>jupyterbook
+</pre></div>
+</div>
+<p>After you have the environment ready, activate it.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>activate<span class="w"> </span>jupyterbook
+</pre></div>
+</div>
+<p>Then, install Python in the environment. You need to be careful here if you are using Windows.
+According to <a class="reference external" href="https://jupyterbook.org/en/stable/advanced/windows.html#working-on-windows">the documentation</a>, Python 3.8 has some problems when being used for building Jupyter Book.
+So, if you are a Windows user, install Python 3.7 specifically instead.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1"># For Mac and Linux users</span>
+conda<span class="w"> </span>install<span class="w"> </span>python
+
+<span class="c1"># For Windows users</span>
+conda<span class="w"> </span>install<span class="w"> </span><span class="nv">python</span><span class="o">=</span><span class="m">3</span>.7
+</pre></div>
+</div>
+<p>Next, install <code class="docutils literal notranslate"><span class="pre">pip</span></code> and check if the path of <code class="docutils literal notranslate"><span class="pre">pip</span></code> is correct.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>install<span class="w"> </span>pip
+which<span class="w"> </span>pip<span class="w"> </span><span class="c1"># make sure this is the pip inside the jupyterbook environment, which means the path should contains the &quot;jupyterbook&quot; string</span>
+</pre></div>
+</div>
+<p>Finally, install the packages that are needed for building and compiling notebooks.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>-U<span class="w"> </span>jupyter-book
+</pre></div>
+</div>
+<p>Check if Jupyter Book is installed correctly using the following command.
+Having no error messages means that Jupyter Book is installed correctly.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>jupyter-book<span class="w"> </span>--help
+</pre></div>
+</div>
+</section>
+<section id="step-3-create-a-new-repository">
+<h2>Step 3: Create a new repository<a class="headerlink" href="#step-3-create-a-new-repository" title="Permalink to this headline">#</a></h2>
+<p><a name="s3"></a></p>
+<p>Next, we need to create a new repository to host your website and code using this tutorial as the template.
+Clone our tutorial repository (which downloads the code to your local machine):</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/yenchiah/jupyter-book-template
+</pre></div>
+</div>
+<p>The cloned tutorial repository has the template files that you need to build your website.
+We are only using the template for reference.</p>
+<p>To have your repository that can host your website and code, <a class="reference external" href="https://github.com/new">create a new repository</a> and work from there.
+Make sure that your repository is public, and do not add a README file.
+You also do not need to add the <code class="docutils literal notranslate"><span class="pre">.gitignore</span></code> file and <code class="docutils literal notranslate"><span class="pre">license</span></code>.</p>
+<p>Then, clone your newly created (and currently empty) repository to your local machine.
+Remember to use the proper account (i.e., replacing <code class="docutils literal notranslate"><span class="pre">[my-account-name]</span></code>) and repository name (i.e., replacing <code class="docutils literal notranslate"><span class="pre">[my-repository-name]</span></code>) in the URL that you want to clone.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/<span class="o">[</span>my-account-name<span class="o">]</span>/<span class="o">[</span>my-repository-name<span class="o">]</span>
+</pre></div>
+</div>
+<p>Now, copy all the template files and folders from the tutorial repository to this newly created repository.
+Again, remember to use the correct repository name (i.e., replacing <code class="docutils literal notranslate"><span class="pre">[my-repository-name]</span></code>).</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>cp<span class="w"> </span>-r<span class="w"> </span>jupyter-book-template/*<span class="w"> </span><span class="o">[</span>my-repository-name<span class="o">]</span>/
+</pre></div>
+</div>
+<p>Finally, delete the old <code class="docutils literal notranslate"><span class="pre">git</span></code> history from the template that you just copied since we do not need them.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>rm<span class="w"> </span>-rf<span class="w"> </span>.git
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Notice that you need to use a terminal to copy all the files (but not drag/drop or copy/paste files with the user interface).
+Otherwise, you will fail to copy the hidden files, such as the <code class="docutils literal notranslate"><span class="pre">.gitignore</span></code> or <code class="docutils literal notranslate"><span class="pre">.gitmodules</span></code> files.</p>
+</div>
+</section>
+<section id="step-4-build-the-book-locally">
+<h2>Step 4: Build the book locally<a class="headerlink" href="#step-4-build-the-book-locally" title="Permalink to this headline">#</a></h2>
+<p><a name="s4"></a></p>
+<p>Now we are going to compile and build your book on your local machine.
+Inside your conda environment, we need to install some required Python packages:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>-U<span class="w"> </span>numpy
+pip<span class="w"> </span>install<span class="w"> </span>-U<span class="w"> </span>plotly
+pip<span class="w"> </span>install<span class="w"> </span>-U<span class="w"> </span>pandas
+pip<span class="w"> </span>install<span class="w"> </span>-U<span class="w"> </span>matplotlib
+pip<span class="w"> </span>install<span class="w"> </span>-U<span class="w"> </span>seaborn
+</pre></div>
+</div>
+<p>To build the book, run the following command.
+Remember that you must go to the repository folder  (i.e., replacing <code class="docutils literal notranslate"><span class="pre">[my-repository-name]</span></code>) that you just cloned.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span><span class="o">[</span>my-repository-name<span class="o">]</span>
+jupyter-book<span class="w"> </span>build<span class="w"> </span>.
+</pre></div>
+</div>
+<p>The above command only builds the newly-updated files since the last time you built the book.
+Sometimes you may want to build the entire book from scratch, and you can use the following:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>jupyter-book<span class="w"> </span>build<span class="w"> </span>--all<span class="w"> </span>.
+</pre></div>
+</div>
+<p>After building the book, all the html files in the “_build/html/” directory will be updated.
+You can then use your browser to open the files locally on your machine to view the compiled notebooks and markdown files.
+You can also install a <a class="reference external" href="https://httpd.apache.org/">local Apache HTTP Server</a> to view the files since the html files are sometimes incorrectly displayed if opened using a browser.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Notice that every time you add new files or update existing files, you need to re-build the book using the commands provided above.</p>
+</div>
+<p>We also already set up the configuration file (<code class="docutils literal notranslate"><span class="pre">_config.yml</span></code>) and table of content file (<code class="docutils literal notranslate"><span class="pre">_toc.yml</span></code>) for you.
+For more information about how to edit them, check <a class="reference external" href="https://jupyterbook.org/en/stable/start/create.html">this documentation</a>.</p>
+</section>
+<section id="step-5-deploy-the-book-online">
+<h2>Step 5: Deploy the book online<a class="headerlink" href="#step-5-deploy-the-book-online" title="Permalink to this headline">#</a></h2>
+<p><a name="s5"></a></p>
+<p>Now, we have the compiled website files ready, and we can move on to deploy the website.
+We will do this using the <a class="reference external" href="https://pages.github.com">GitHub Pages</a>.</p>
+<p>First, push your code and files on your local machine to your remote repository.
+Replace <code class="docutils literal notranslate"><span class="pre">[my-repository-name]</span></code> with your repository name.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span><span class="o">[</span>my-repository-name<span class="o">]</span>
+git<span class="w"> </span>add<span class="w"> </span>.
+git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Add my first book!&quot;</span>
+git<span class="w"> </span>push
+</pre></div>
+</div>
+<p>The above commands push your code to the main branch.
+However, we need to use the <a class="reference external" href="https://github.com/c-w/ghp-import">ghp-import</a> package to push your website code to a separate branch.
+To use the package, run the following to install it:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>-U<span class="w"> </span>ghp-import
+</pre></div>
+</div>
+<p>Then, run the following command to push your html files to the <code class="docutils literal notranslate"><span class="pre">gh-pages</span></code> branch.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>ghp-import<span class="w"> </span>-n<span class="w"> </span>-p<span class="w"> </span>-f<span class="w"> </span>_build/html
+</pre></div>
+</div>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Remember that every time you build some new files (or updated files), you need to run the above commands again to update your website code in the remote GitHub repository.</p>
+</div>
+<p>After this, go to the URL that points to your GitHub repository, click “Settings” -&gt; “Pages” to go to the page settings.
+You should see a message similar to “Your site is live at [XXX]”, where “[XXX]” is your website URL that is publicly accessible.</p>
+<p>Also, sometimes it will take a while for GitHub to update your webpage content.
+You can check the “Action” page to check the status.
+For example, here is the <a class="reference external" href="https://github.com/yenchiah/jupyter-book-template/actions">action page for our tutorial repository</a>.</p>
+<p>You can now publish this URL online, such as on your personal website.
+More information about how to publish your book can be found on <a class="reference external" href="https://jupyterbook.org/en/stable/start/publish.html">this documentation</a>.</p>
+</section>
+<div class="toctree-wrapper compound">
+</div>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./docs"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="right-next"
+       href="notebook.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Example Notebook</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#table-of-contents">Table of contents</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prerequisites">Prerequisites</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-install-conda">Step 1: Install conda</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-install-jupyter-book">Step 2: Install Jupyter Book</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-create-a-new-repository">Step 3: Create a new repository</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-4-build-the-book-locally">Step 4: Build the book locally</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-5-deploy-the-book-online">Step 5: Deploy the book online</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Yen-Chia Hsu
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
