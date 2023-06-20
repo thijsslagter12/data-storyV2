@@ -4,4 +4,9 @@
 format: jb-book
 root: docs/home
 chapters:
-- file: docs/notebook
+- file: docs/example_data_stories_no_output
+  title: More strikes but fewer strikers in 2022
+- file: docs/example_data_stories
+  title: Code
+  
+
