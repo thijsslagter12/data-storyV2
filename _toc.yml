@@ -2,11 +2,4 @@
 # Learn more at https://jupyterbook.org/customize/toc.html
 
 format: jb-book
-root: docs/home
-chapters:
-- file: docs/example_data_stories_no_output
-  title: More strikes but fewer strikers in 2022
-- file: docs/example_data_stories
-  title: Code
-  
-
+root: docs/format
