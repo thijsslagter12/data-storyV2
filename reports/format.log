@@ -1,0 +1,102 @@
+Traceback (most recent call last):
+  File "/opt/homebrew/Caskroom/miniconda/base/envs/jupyterbook/lib/python3.10/site-packages/jupyter_cache/executors/utils.py", line 51, in single_nb_execution
+    executenb(
+  File "/opt/homebrew/Caskroom/miniconda/base/envs/jupyterbook/lib/python3.10/site-packages/nbclient/client.py", line 1204, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+  File "/opt/homebrew/Caskroom/miniconda/base/envs/jupyterbook/lib/python3.10/site-packages/nbclient/util.py", line 84, in wrapped
+    return just_run(coro(*args, **kwargs))
+  File "/opt/homebrew/Caskroom/miniconda/base/envs/jupyterbook/lib/python3.10/site-packages/nbclient/util.py", line 62, in just_run
+    return loop.run_until_complete(coro)
+  File "/opt/homebrew/Caskroom/miniconda/base/envs/jupyterbook/lib/python3.10/asyncio/base_events.py", line 649, in run_until_complete
+    return future.result()
+  File "/opt/homebrew/Caskroom/miniconda/base/envs/jupyterbook/lib/python3.10/site-packages/nbclient/client.py", line 663, in async_execute
+    await self.async_execute_cell(
+  File "/opt/homebrew/Caskroom/miniconda/base/envs/jupyterbook/lib/python3.10/site-packages/nbclient/client.py", line 965, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/opt/homebrew/Caskroom/miniconda/base/envs/jupyterbook/lib/python3.10/site-packages/nbclient/client.py", line 862, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+import geopandas as gpd
+import pandas as pd
+import plotly.express as px
+import random
+
+# Read the shapefile using geopandas
+shapefile_path = 'gadm41_NLD_shp/gadm41_NLD_1.shp'
+data = gpd.read_file(shapefile_path)
+
+# Sample data for demonstration
+sample_data = {
+    'Province': ['Drenthe', 'Flevoland', 'Fryslân', 'Gelderland', 'Groningen', 'Limburg', 'Noord-Brabant', 'Noord-Holland', 'Overijssel', 'Utrecht', 'Zeeland', 'NA'],
+    'average_income': [random.randint(0, 1000000) for _ in range(12)]
+}
+
+# Merge the sample data with the shapefile data
+merged_data = data.merge(pd.DataFrame(sample_data), left_on='NAME_1', right_on='Province')
+
+# Exclude Zeeuwse meren and IJsselmeer regions
+merged_data = merged_data[~merged_data['NAME_1'].isin(['Zeeuwse meren', 'IJsselmeer'])]
+
+# Rename Fryslân to Friesland
+merged_data.loc[merged_data['NAME_1'] == 'Fryslân', 'NAME_1'] = 'Friesland'
+
+# Rename Noord-Brabant to Brabant
+merged_data.loc[merged_data['NAME_1'] == 'Noord-Brabant', 'NAME_1'] = 'Brabant'
+
+# Rename NA to Zuid-Holland
+merged_data.loc[merged_data['NAME_1'] == 'NA', 'NAME_1'] = 'Zuid-Holland'
+
+# Create the choropleth map using Plotly Express
+fig6 = px.choropleth_mapbox(
+    merged_data,
+    geojson=merged_data.geometry.__geo_interface__,
+    color='average_income',
+    locations=merged_data.index,
+    featureidkey="id",
+    center={"lat": 52.1326, "lon": 5.2913},
+    mapbox_style="carto-positron",
+    zoom=5.5,
+    color_continuous_scale='Blues',
+    labels={'average_income': 'Average income'},
+    opacity=0.75,
+    hover_name='NAME_1',  # Update to 'NAME_1' for correct hover labels
+    hover_data={'average_income': True, 'NAME_1': False},  # Update to 'NAME_1' for correct hover data
+    custom_data=['average_income'],
+)
+
+fig6.update_traces(
+    hovertemplate='<b>%{hovertext}</b><br>Average income: <b>%{customdata[0]}k</b><extra></extra>',
+)
+
+fig6.update_layout(
+    title_text='Average income by Province in the Netherlands',
+    margin={"r": 30, "t": 70, "l": 30, "b": 30},
+    legend=dict(
+        traceorder='normal',
+        font=dict(size=10),
+        bgcolor='rgba(255, 255, 255, 0.5)',
+        bordercolor='rgba(0, 0, 0, 0.5)',
+        borderwidth=0.5
+    ),
+    hoverlabel=dict(
+        bgcolor='white',
+        font_size=12,
+        font_family='Arial',
+    ),
+    height=600
+)
+
+fig6.show()
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
+Cell [0;32mIn[7], line 1[0m
+[0;32m----> 1[0m [38;5;28;01mimport[39;00m [38;5;21;01mgeopandas[39;00m [38;5;28;01mas[39;00m [38;5;21;01mgpd[39;00m
+[1;32m      2[0m [38;5;28;01mimport[39;00m [38;5;21;01mpandas[39;00m [38;5;28;01mas[39;00m [38;5;21;01mpd[39;00m
+[1;32m      3[0m [38;5;28;01mimport[39;00m [38;5;21;01mplotly[39;00m[38;5;21;01m.[39;00m[38;5;21;01mexpress[39;00m [38;5;28;01mas[39;00m [38;5;21;01mpx[39;00m
+
+[0;31mModuleNotFoundError[0m: No module named 'geopandas'
+ModuleNotFoundError: No module named 'geopandas'
+
