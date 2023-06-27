@@ -16,9 +16,9 @@
 # import pandas as pd
 
 # Step 2: Load and filter the datasets
-# data1 = load_dataset('path_to_dataset1')
+# data1 = load_dataset("path_to_dataset1.csv")
 # filtered_data1 = filer_data1(data1)
-# data2 = load_dataset('path_to_dataset2')
+# data2 = load_dataset("path_to_dataset2.csv")
 # filtered_data2 = filer_data2(data2)
 
 # Step 3: Merge datasets
