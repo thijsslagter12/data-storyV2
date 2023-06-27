@@ -3,3 +3,5 @@
 
 format: jb-book
 root: docs/format
+chapters:
+  - file: docs/preprocess

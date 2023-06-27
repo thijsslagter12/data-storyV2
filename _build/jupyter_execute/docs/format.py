@@ -493,3 +493,19 @@ fig6.show()
 # ## References
 # 
 # Centraal Bureau voor de Statistiek. (2023). More strikes but fewer strikers in 2022. Statistics Netherlands. https://www.cbs.nl/en-gb/news/2023/18/more-strikes-but-fewer-strikers-in-2022
+
+# ## Appendix
+# 
+# Generative AI (ChatGPT with GPT 3.5) is used to facilitate the creation of this document, as shown in the table below.
+# 
+# | Reasons of Usage | In which parts? | Which prompts were used? |
+# | ------------------------ | --------------------------------- | -------------------------------------------- |
+# | Brainstorm research questions and identify keywords for further search | The entire project framing | "Give keywords about the current debate in climate change with brief explanations" |
+# | Improve writing clarity and enhance readability | All sections | "Edit the following text to make it more clear. Do not alter the meaning." |
+# | Enhance readability | All sections | "Revise the paragraph to improve readability." |
+# | Ensure grammatical accuracy |  All sections | "Correct any grammatical errors in the text." |
+# | Provide alternative phrasing | Descriptions of the perspectives | "Suggest alternative phrases for better clarity." |
+# | Optimize sentence structure | All sections | "Restructure the sentence for better flow." |
+# | Condense lengthy sentences | All sections | "Simplify the following sentences without losing important information."|
+# 
+# > *Table 1: Usage of generative AI to facilitate the creation of this document.*
