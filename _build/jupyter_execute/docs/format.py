@@ -509,3 +509,5 @@ fig6.show()
 # | Condense lengthy sentences | All sections | "Simplify the following sentences without losing important information."|
 # 
 # > *Table 1: Usage of generative AI to facilitate the creation of this document.*
+
+# %%
