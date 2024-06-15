@@ -7,7 +7,7 @@ df = pd.read_csv('score_correlations.csv')
 # Create the bar trace
 trace = go.Bar(
     x = df['Variable1'],
-    y = df['Correlation'].abs()
+    y = df['Correlation']
 )
 
 # Create the figure and update layout with titles
