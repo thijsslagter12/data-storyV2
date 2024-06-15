@@ -1,0 +1,30 @@
+Variable1,Variable2,Correlation
+Life expectancy,Score,0.7676229133054135
+Birth Rate,Score,-0.682847468334151
+Infant mortality,Score,-0.679640776560025
+Minimum wage,Score,0.6753977834608236
+Gross tertiary education enrollment (%),Score,0.6553066171805744
+Physicians per thousand,Score,0.646350937905493
+Fertility Rate,Score,-0.6395559999246825
+Maternal mortality ratio,Score,-0.6011483676867904
+Out of pocket health expenditure,Score,-0.4566434511860327
+Latitude,Score,0.37861081252567025
+Gasoline Price,Score,0.3319717450081776
+Tax revenue (%),Score,0.28483468148597063
+Agricultural Land( %),Score,-0.2599950526015749
+CPI,Score,-0.23834367464908413
+CPI Change (%),Score,-0.22293473035980585
+Longitude,Score,-0.19329149350100966
+Unemployment rate,Score,-0.19085496676906136
+GDP,Score,0.15954496235535062
+Forested Area (%),Score,0.15751206475958102
+Total tax rate,Score,-0.12055904467173474
+Land Area(Km2),Score,0.11588070382585557
+"Density(P/Km2)",Score,0.08300476140298649
+Calling Code,Score,-0.06990907004594477
+Population,Score,-0.06859108698735686
+Co2-Emissions,Score,0.0626062506780822
+Armed Forces size,Score,-0.0562157260844323
+Population: Labor force participation (%),Score,-0.03710719204258921
+Gross primary education enrollment (%),Score,-0.03067587789813226
+Urban_population,Score,0.0079081716684204
