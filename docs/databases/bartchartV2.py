@@ -2,14 +2,14 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 # Load the merged dataset
-merged_data = pd.read_csv('merged_dataset2.csv')
+merged_data = pd.read_csv('merged_dataset2_updated.csv')
 
 # Define variables of interest for correlation analysis
 variables = ['Density (P/Km2)', 'Agricultural Land( %)', 'Land Area(Km2)', 'Armed Forces size', 
              'Birth Rate', 'Co2-Emissions', 'CPI', 'CPI Change (%)', 'Currency-Code', 
-             'Fertility Rate', 'Forested Area (%)', 'Gasoline Price', 'GDP', 
+             'Fertility Rate', 'Forested Area (%)', 'Gasoline Price', 
              'Gross primary education enrollment (%)', 'Gross tertiary education enrollment (%)', 
-             'Infant mortality', 'Life expectancy', 'Maternal mortality ratio', 'Minimum wage']
+             'Infant mortality', 'Life expectancy', 'Maternal mortality ratio', 'Minimum wage', 'Logged GDP per capita']
 
 # Function to preprocess columns with special characters and percentages
 def preprocess_column(col):
