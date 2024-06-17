@@ -12,7 +12,7 @@ merged_data.columns = merged_data.columns.str.strip()
 data_2020.columns = data_2020.columns.str.strip()
 
 # Merge datasets on 'Country' (ensure 'Country' exists in both)
-merged_data = pd.merge(merged_data, data_2020[['Country', 'Logged GDP per capita', 'Social support']], on='Country')
+merged_data = pd.merge(merged_data, data_2020[['Country', 'Logged GDP per capita 2020', 'Social support', 'Happiness Score 2020']], on='Country', how='left')
 
 merged_data.drop(columns=['GDP'], inplace=True)
 
