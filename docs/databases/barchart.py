@@ -13,7 +13,7 @@ trace = go.Bar(
 # Create the figure and update layout with titles
 fig = go.Figure(trace)
 fig.update_layout(
-    title='Correlations with Happiness in a country',
+    title='Correlations with Happiness in a country in 2020',
     yaxis_title='Correlation with Happiness',
     xaxis_title='Different properties of a country',
         xaxis=dict(
