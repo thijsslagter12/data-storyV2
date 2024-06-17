@@ -9,7 +9,7 @@ variables = ['Density (P/Km2)', 'Agricultural Land( %)', 'Land Area(Km2)', 'Arme
              'Birth Rate', 'Co2-Emissions', 'CPI', 'CPI Change (%)', 'Currency-Code', 
              'Fertility Rate', 'Forested Area (%)', 'Gasoline Price', 
              'Gross primary education enrollment (%)', 'Gross tertiary education enrollment (%)', 
-             'Infant mortality', 'Life expectancy', 'Maternal mortality ratio', 'Minimum wage', 'Logged GDP per capita']
+             'Infant mortality', 'Life expectancy', 'Maternal mortality ratio', 'Minimum wage', 'Logged GDP per capita 2020']
 
 # Function to preprocess columns with special characters and percentages
 def preprocess_column(col):
