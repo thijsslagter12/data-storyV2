@@ -1,5 +1,6 @@
 import pandas as pd
 import matplotlib.pyplot as plt
+import seaborn as sns
 
 # Load the merged dataset
 merged_data = pd.read_csv('merged_dataset2_updated.csv')
@@ -9,11 +10,11 @@ variables = ['Density(P/Km2)', 'Agricultural Land( %)', 'Land Area(Km2)', 'Armed
              'Birth Rate', 'Co2-Emissions', 
              'Fertility Rate', 'Forested Area (%)', 'Gasoline Price', 
              'Gross primary education enrollment (%)', 'Gross tertiary education enrollment (%)', 
-             'Infant mortality', 'Life expectancy', 'Maternal mortality ratio', 'Minimum wage', 'Logged GDP per capita 2020']
+             'Infant mortality', 'Life expectancy', 'Maternal mortality ratio', 'Minimum wage', 
+             'Logged GDP per capita', 'Social support']
 
 # Function to preprocess columns with special characters and percentages
 def preprocess_column(col):
-    # Remove non-numeric characters ('$' and '%') and convert to numeric
     if merged_data[col].dtype == 'object':  # Only process columns with object dtype
         if '$' in merged_data[col].iloc[0]:  # Check if column contains '$'
             merged_data[col] = merged_data[col].replace('[\$,]', '', regex=True).astype(float)
@@ -26,25 +27,32 @@ def preprocess_column(col):
 for var in variables:
     preprocess_column(var)
 
+# Filter out rows where Logged GDP per capita is NaN or missing
+merged_data = merged_data.dropna(subset=['Logged GDP per capita'])
+
 # Define thresholds for GDP per capita to classify countries into three groups
 gdp_thresholds = [8, 10]  # Define your thresholds based on your criteria
+
+poor_group = f'Ultra Poor: GDP per capita < {gdp_thresholds[0]}'
+middle_group = f'Middle Poor: {gdp_thresholds[0]} <= GDP per capita < {gdp_thresholds[1]}'
+rich_group = f'Ultra Rich: GDP per capita >= {gdp_thresholds[1]}'
 
 # Function to categorize GDP per capita into three groups
 def categorize_gdp(gdp):
     if gdp < gdp_thresholds[0]:
-        return 'Ultra Poor'
+        return poor_group
     elif gdp < gdp_thresholds[1]:
-        return 'Middle Poor'
+        return middle_group
     else:
-        return 'Ultra Rich'
+        return rich_group
 
 # Apply the categorization function to create a new column 'GDP Group'
-merged_data['GDP Group'] = merged_data['Logged GDP per capita 2020'].apply(categorize_gdp)
+merged_data['GDP Group'] = merged_data['Logged GDP per capita'].apply(categorize_gdp)
 
 # Compute correlations for each group and each variable
 correlations = []
 
-for group in ['Ultra Poor', 'Middle Poor', 'Ultra Rich']:
+for group in [poor_group, middle_group, rich_group]:
     group_data = merged_data[merged_data['GDP Group'] == group]
     group_corr = []
     for var in variables:
@@ -56,25 +64,13 @@ for group in ['Ultra Poor', 'Middle Poor', 'Ultra Rich']:
 # Convert correlations list to DataFrame
 correlations_df = pd.DataFrame(correlations)
 
-# Plotting the correlations using a bar chart for each group
-fig, axs = plt.subplots(1, 3, figsize=(18, 6), sharey=True)
-
-for i, group in enumerate(['Ultra Poor', 'Middle Poor', 'Ultra Rich']):
-    group_corr_df = correlations_df[correlations_df['Group'] == group].sort_values(by='Correlation', key=abs, ascending=False)
-
-    bars = axs[i].barh(range(len(group_corr_df)), group_corr_df['Correlation'], color='skyblue')
-    axs[i].set_xlabel('Correlation Coefficient with Happiness Score 2020')
-    axs[i].set_title(f'Correlations for {group} Group')
-    axs[i].grid(axis='x', linestyle='--', alpha=0.7)
-
-    # Set y-axis ticks and labels for the first plot only
-    axs[i].set_yticks(range(len(group_corr_df)))
-    axs[i].set_yticklabels(group_corr_df['Variable'])
-
-    # Annotate bars with correlation values
-    for j, bar in enumerate(bars):
-        axs[i].annotate(f'{bar.get_width():.2f}', xy=(bar.get_width(), bar.get_y() + bar.get_height() / 2),
-                        xytext=(5, 0), textcoords='offset points', ha='left', va='center', fontsize=10, color='black')
-
+# Plotting the bar chart
+plt.figure(figsize=(12, 8))
+sns.barplot(x='Correlation', y='Variable', hue='Group', data=correlations_df, palette='Set2')
+plt.title('Correlation of Variables with Happiness Score by grouped GDP countries')
+plt.xlabel('Correlation with happiness')
+plt.ylabel('Variable')
+plt.grid(True)
+plt.legend(title='GDP grouped countries', loc='upper right')
 plt.tight_layout()
 plt.show()

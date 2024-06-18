@@ -7,10 +7,10 @@ from plotly.subplots import make_subplots
 df = pd.read_csv('merged_dataset2_updated.csv')
 
 # Extract relevant columns
-df = df[['Country', 'Logged GDP per capita 2020', 'Social support', 'Happiness Score 2020']]
+df = df[['Country', 'Logged GDP per capita', 'Social support', 'Happiness Score 2020']]
 
 # Convert to numeric, handling errors if any
-df['Logged GDP per capita 2020'] = pd.to_numeric(df['Logged GDP per capita 2020'], errors='coerce')
+df['Logged GDP per capita'] = pd.to_numeric(df['Logged GDP per capita'], errors='coerce')
 df['Social support'] = pd.to_numeric(df['Social support'], errors='coerce')
 df['Happiness Score 2020'] = pd.to_numeric(df['Happiness Score 2020'], errors='coerce')
 
@@ -19,7 +19,7 @@ df = df.dropna()
 
 # Compute correlation coefficients
 corr_social_support, _ = pearsonr(df['Social support'], df['Happiness Score 2020'])
-corr_gdp, _ = pearsonr(df['Logged GDP per capita 2020'], df['Happiness Score 2020'])
+corr_gdp, _ = pearsonr(df['Logged GDP per capita'], df['Happiness Score 2020'])
 
 # Create interactive scatter plot for Social Support vs Happiness Score
 fig1 = px.scatter(df, x='Social support', y='Happiness Score 2020', 
@@ -31,10 +31,10 @@ fig1.update_traces(marker=dict(color='blue'))
 
 
 # Create interactive scatter plot for Logged GDP per capita vs Happiness Score
-fig2 = px.scatter(df, x='Logged GDP per capita 2020', y='Happiness Score 2020', 
+fig2 = px.scatter(df, x='Logged GDP per capita', y='Happiness Score 2020', 
                   title='Logged GDP per capita vs Happiness Score 2020',
-                  labels={'Logged GDP per capita 2020': 'Logged GDP per capita 2020', 'Happiness Score 2020': 'Happiness Score 2020'},
-                  hover_name='Country', hover_data={'Happiness Score 2020': ':.2f', 'Logged GDP per capita 2020': ':.2f'})
+                  labels={'Logged GDP per capita': 'Logged GDP per capita', 'Happiness Score 2020': 'Happiness Score 2020'},
+                  hover_name='Country', hover_data={'Happiness Score 2020': ':.2f', 'Logged GDP per capita': ':.2f'})
 
 fig2.update_traces(marker=dict(color='green'))
 
