@@ -1,5 +1,6 @@
 import pandas as pd
 import matplotlib.pyplot as plt
+import numpy as np
 
 # Load the dataset
 file_path = 'merged_dataset2_updated.csv'
@@ -24,6 +25,9 @@ def categorize_gdp(gdp):
 
 # Apply categorization to create a new column 'GDP Group'
 df['GDP Group'] = df['Logged GDP per capita'].apply(categorize_gdp)
+
+# Filter out rows where 'Logged GDP per capita' or 'Gini coefficient' are NaN or Inf
+df = df.replace([np.inf, -np.inf], np.nan).dropna(subset=['Logged GDP per capita', 'Gini coefficient'])
 
 # Split data into three groups based on GDP Group
 group_poor = df[df['GDP Group'] == poor_group]
@@ -67,7 +71,7 @@ def plot_group(ax, df, title):
     ax.figure.colorbar(scatter, ax=ax, label='Happiness Score 2020')
 
     # Set y-axis limits for Gini coefficient
-    ax.set_ylim(0.15, 0.7)
+    ax.set_ylim(0.15, 0.8)
 
     # Add labels and title
     ax.set_title(title)
