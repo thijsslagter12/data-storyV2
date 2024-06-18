@@ -6,4 +6,3 @@ root: docs/format
 chapters:
   - file: docs/introduction
   - file: docs/preprocess
-  - file: docs/format
