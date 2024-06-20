@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Data Preprocessing &#8212; Does money buy happiness?</title>
+    <title>Dataset and Preprocessing &#8212; Does money buy happiness?</title>
   
   
   
@@ -173,7 +173,9 @@
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Data Preprocessing</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Dataset and Preprocessing</a></li>
+
+
 <li class="toctree-l1"><a class="reference internal" href="format.html">Does money buy happiness?</a></li>
 </ul>
 
@@ -249,50 +251,18 @@
 
 
 
-
-
-
-<div class="dropdown dropdown-source-buttons">
-  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
-    <i class="fab fa-github"></i>
-  </button>
-  <ul class="dropdown-menu">
-      
-      
-      
-      <li><a href="https://github.com/thijsslagter12/data-storyV2.git" target="_blank"
-   class="btn btn-sm btn-source-repository-button dropdown-item"
+<a href="https://github.com/thijsslagter12/data-storyV2.git" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
    title="Source repository"
-   data-bs-placement="left" data-bs-toggle="tooltip"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
 >
   
 
 <span class="btn__icon-container">
   <i class="fab fa-github"></i>
   </span>
-<span class="btn__text-container">Repository</span>
-</a>
-</li>
-      
-      
-      
-      
-      <li><a href="https://github.com/thijsslagter12/data-storyV2.git/issues/new?title=Issue%20on%20page%20%2Fdocs/preprocess.html&body=Your%20issue%20content%20here." target="_blank"
-   class="btn btn-sm btn-source-issues-button dropdown-item"
-   title="Open an issue"
-   data-bs-placement="left" data-bs-toggle="tooltip"
->
-  
 
-<span class="btn__icon-container">
-  <i class="fas fa-lightbulb"></i>
-  </span>
-<span class="btn__text-container">Open issue</span>
 </a>
-</li>
-      
-  </ul>
-</div>
 
 
 
@@ -378,7 +348,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -389,11 +361,22 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Data Preprocessing</h1>
+    <h1>Dataset and Preprocessing</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Dataset and Preprocessing</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#data-cleaning">Data cleaning</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#variable-desprictions">Variable Desprictions</a></li>
+</ul>
+
+            </nav>
         </div>
     </div>
 </div>
@@ -403,38 +386,31 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="data-preprocessing">
-<h1>Data Preprocessing<a class="headerlink" href="#data-preprocessing" title="Link to this heading">#</a></h1>
-<p>Student names: FIRST_STUDENT, SECOND_STUDENT, THIRD_STUDENT, FORTH_STUDENT</p>
-<p>Team number: YOUR_REGISTERED_TEAM_NUMBER_ON_CANVAS</p>
-<p>The following code is used to preprocess the datasets into files that are used for the data story.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Step 1: Import necessary libraries</span>
-<span class="c1"># import pandas as pd</span>
-
-<span class="c1"># Step 2: Load and filter the datasets</span>
-<span class="c1"># data1 = load_dataset(&quot;path_to_dataset1.csv&quot;)</span>
-<span class="c1"># filtered_data1 = filer_data1(data1)</span>
-<span class="c1"># data2 = load_dataset(&quot;path_to_dataset2.csv&quot;)</span>
-<span class="c1"># filtered_data2 = filer_data2(data2)</span>
-
-<span class="c1"># Step 3: Merge datasets</span>
-<span class="c1"># merged_data = merge_datasets(filtered_data1, filtered_data2)</span>
-
-<span class="c1"># Step 4: Process the data for visualizations</span>
-<span class="c1"># first_result_for_vis = process_first_result(filtered_data1)</span>
-<span class="c1"># second_result_for_vis = process_second_result(filtered_data2)</span>
-<span class="c1"># third_result_for_vis = process_third_result(merged_data)</span>
-
-<span class="c1"># Step 5: Save the results into files</span>
-<span class="c1"># save_to_file(first_result_for_vis, &quot;table1.csv&quot;)</span>
-<span class="c1"># save_to_file(second_result_for_vis, &quot;table2.csv&quot;)</span>
-<span class="c1"># save_to_file(third_result_for_vis, &quot;table3.csv&quot;)</span>
-</pre></div>
-</div>
-</div>
-</div>
+  <section id="dataset-and-preprocessing">
+<h1>Dataset and Preprocessing<a class="headerlink" href="#dataset-and-preprocessing" title="Link to this heading">#</a></h1>
+<p>Before the first meeting took place, all participants of our group looked for an interesting subject for this project and at least two corresponding, adequate datasets that could help build two opposite perspectives on their found topic.
+After some debate about what topic would be most suiting to inspect, we ultimately ended up with a dataset called <a class="reference external" href="https://www.kaggle.com/datasets/unsdsn/world-happiness">World Happiness Report</a> and <a class="reference external" href="https://www.kaggle.com/datasets/nelgiriyewithana/countries-of-the-world-2023">Global Country Information Dataset 2023</a> which were found on <a class="reference external" href="http://Kaggle.com">Kaggle.com</a>. The be more specific, the World Happiness Report dataset was a collection of databases from 2015 up to 2020.
+After some research on <a class="reference external" href="http://Kaggle.com">Kaggle.com</a>, we also found <a class="reference external" href="https://www.kaggle.com/datasets/ajaypalsinghlo/world-happiness-report-2023">datasets</a> containing the World Happiness Scores from later years and we aggregated these all into one dataset, that we fittinly named <a class="reference internal" href="#/Documents/InfVis/Draft/data-storyV2/docs/databases/merged_dataset2.csv"><span class="xref myst">merged_dataset.csv</span></a>.</p>
+<p>The Global Country Information Dataset offers detailed information about countries worldwide. It includes demographic statistics, economic metrics, environmental data, healthcare figures, education statistics, and more. With a representation from every country, the dataset provides a comprehensive global view, allowing for in-depth analyses and comparisons across nations. The data has been obtained from multiple sources.</p>
+<p>The datasets on World Happiness Scores all contained reported World Happiness Scores per country and possible, contributing factors to these happiness scores, such as life expectancy, birthrate and GDP per capita. With the possible correlations between these factors and happiness scores in both the Global Country Information Dataset and the World Happiness Report Datasets, we thought it would be interesting to discover what factors most influenced the happiness of a people and with analyzing these factors we tried to answer the ageold question: ‘Does money buy happiness?’.</p>
+</section>
+<section id="data-cleaning">
+<h1>Data cleaning<a class="headerlink" href="#data-cleaning" title="Link to this heading">#</a></h1>
+<p>Since we wanted to aggregate the datasets from the years 2015 to 2020 into the Global Country Information Database 2023, based on country name, we had to ensure all columns containing the countries had the same name. We also had to correct a small discrepancy between country names in the different datasets, so they would be equal in every dataset and aggregation would be possible.</p>
+<p>To be able to differentiate between the multiple happiness score-columns, we labeled each column with the correct year.</p>
+<p>5 Rows had inefficient or too little data have on Happiness scores, so those rows were deleted. We eventually ended up with 189 countries still remaining.</p>
+</section>
+<section id="variable-desprictions">
+<h1>Variable Desprictions<a class="headerlink" href="#variable-desprictions" title="Link to this heading">#</a></h1>
+<p>Merged_dataset2.csv is a rather big dataset, so we will show you and classify only the important variables.</p>
+<ul class="simple">
+<li><p>Categorical/Nominal: Country names</p></li>
+<li><p>Continuous/Ratio: Life expectancy, Birthrate, Infant mortality, Minimum wage, Gross tertiary education enrollment (%), <br />
+Fertility rate, Maternal mortality ratio, Physicians per thousand, Out-of-pocket health expenditure, Latitude, Gasoline price,<br />
+Tax revenue (%), Agricultural land, CPI (Consumer Price Index), CPI change, Unemployment rate, Longitude, Forested area (%), GDP, <br />
+GDP per capita, Social support</p></li>
+<li><p>Ordinal: World Happiness Score</p></li>
+</ul>
 </section>
 
     <script type="text/x-thebe-config">
@@ -492,6 +468,24 @@ document.write(`
             
             
               
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Dataset and Preprocessing</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#data-cleaning">Data cleaning</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#variable-desprictions">Variable Desprictions</a></li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
             
           </div>
           <footer class="bd-footer-content">
@@ -511,7 +505,7 @@ By DATO THIBI Visuals bv.
 
   <p class="copyright">
     
-      © Copyright 2023.
+      © Copyright 2024.
       <br/>
     
   </p>
