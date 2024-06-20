@@ -4,7 +4,7 @@
 title: Does money buy happiness? # Change this to your book title.
 author: DATO THIBI Visuals bv. # Change this to your name (or your team/organization name).
 copyright: "2024"
-logo: images/favicon.png
+logo: docs/images/logomakesmoneyhappy.png
 
 # Force re-execution of notebooks on each build.
 # See https://jupyterbook.org/content/execute.html
@@ -26,7 +26,7 @@ repository:
 # See https://jupyterbook.org/customize/config.html#add-a-link-to-your-repository
 html:
   use_repository_button: true
-  favicon: images/favicon.ico
+  favicon: docs/images/favicon.ico
 
 # Add launch buttons
 launch_buttons:
