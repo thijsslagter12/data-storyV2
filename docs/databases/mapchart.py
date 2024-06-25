@@ -12,8 +12,8 @@ data = pd.read_csv('merged_dataset2_updated.csv')
 data_long = pd.melt(
     data,
     id_vars=['Country', 'iso_a3'],
-    value_vars=['Happiness Score 2020','Happiness Score 2019', 'Happiness Score 2018', 'Happiness Score 2017','Happiness Score 2016',
-                'Happiness Score 2015'],
+    value_vars=['Happiness Score 2015','Happiness Score 2016', 'Happiness Score 2017',
+                 'Happiness Score 2018','Happiness Score 2019', 'Happiness Score 2020'],
     var_name='Year',
     value_name='Happiness Score'
 )
