@@ -183,6 +183,7 @@
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Dataset and Preprocessing</a></li>
 
 
+
 <li class="toctree-l1"><a class="reference internal" href="format.html">Does money buy happiness?</a></li>
 <li class="toctree-l1"><a class="reference internal" href="reflection.html">Reflection</a></li>
 <li class="toctree-l1"><a class="reference internal" href="work-distribution.html">Work distribution</a></li>
@@ -381,8 +382,9 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Dataset and Preprocessing</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#data-cleaning">Data cleaning</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#data-cleaning">Data Cleaning</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#variable-desprictions">Variable Desprictions</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-adjustments">Additional Adjustments</a></li>
 </ul>
 
             </nav>
@@ -399,15 +401,15 @@ document.write(`
 <h1>Dataset and Preprocessing<a class="headerlink" href="#dataset-and-preprocessing" title="Link to this heading">#</a></h1>
 <p>Before the first meeting took place, all participants of our group looked for an interesting subject for this project and at least two corresponding, adequate datasets that could help build two opposite perspectives on their found topic.
 After some debate about what topic would be most suiting to inspect, we ultimately ended up with a dataset called <a class="reference external" href="https://www.kaggle.com/datasets/unsdsn/world-happiness">World Happiness Report</a> and <a class="reference external" href="https://www.kaggle.com/datasets/nelgiriyewithana/countries-of-the-world-2023">Global Country Information Dataset 2023</a> which were found on <a class="reference external" href="http://Kaggle.com">Kaggle.com</a>. The be more specific, the World Happiness Report dataset was a collection of databases from 2015 up to 2020.
-After some research on <a class="reference external" href="http://Kaggle.com">Kaggle.com</a>, we also found <a class="reference external" href="https://www.kaggle.com/datasets/ajaypalsinghlo/world-happiness-report-2023">datasets</a> containing the World Happiness Scores from later years and we aggregated these all into one dataset, that we fittingly named <a class="reference external" href="https://github.com/thijsslagter12/data-storyV2/blob/main/docs/databases/merged_dataset2_updated.csv">merged_dataset.csv</a>.</p>
+After some research on <a class="reference external" href="http://Kaggle.com">Kaggle.com</a>, we also found <a class="reference external" href="https://www.kaggle.com/datasets/ajaypalsinghlo/world-happiness-report-2023">datasets</a> containing the World Happiness Scores from later years and we aggregated these all into one dataset, that we fittinly named <a class="reference external" href="https://github.com/thijsslagter12/data-storyV2/blob/main/docs/databases/merged_dataset2_updated.csv">merged_dataset2_updated.csv</a>.</p>
 <p>The Global Country Information Dataset offers detailed information about countries worldwide. It includes demographic statistics, economic metrics, environmental data, healthcare figures, education statistics, and more. With a representation from every country, the dataset provides a comprehensive global view, allowing for in-depth analyses and comparisons across nations. The data has been obtained from multiple sources.</p>
 <p>The datasets on World Happiness Scores all contained reported World Happiness Scores per country and possible, contributing factors to these happiness scores, such as life expectancy, birthrate and GDP per capita. With the possible correlations between these factors and happiness scores in both the Global Country Information Dataset and the World Happiness Report Datasets, we thought it would be interesting to discover what factors most influenced the happiness of a people and with analyzing these factors we tried to answer the ageold question: ‘Does money buy happiness?’.</p>
 </section>
 <section id="data-cleaning">
-<h1>Data cleaning<a class="headerlink" href="#data-cleaning" title="Link to this heading">#</a></h1>
+<h1>Data Cleaning<a class="headerlink" href="#data-cleaning" title="Link to this heading">#</a></h1>
 <p>Since we wanted to aggregate the datasets from the years 2015 to 2020 into the Global Country Information Database 2023, based on country name, we had to ensure all columns containing the countries had the same name. We also had to correct a small discrepancy between country names in the different datasets, so they would be equal in every dataset and aggregation would be possible.</p>
 <p>To be able to differentiate between the multiple happiness score-columns, we labeled each column with the correct year.</p>
-<p>5 Rows had inefficient or too little data have on Happiness scores, so those rows were deleted. We eventually ended up with 189 countries still remaining.</p>
+<p>5 Rows had inefficient or too little data on Happiness scores, so those rows were deleted. We eventually ended up with 189 countries still remaining.</p>
 </section>
 <section id="variable-desprictions">
 <h1>Variable Desprictions<a class="headerlink" href="#variable-desprictions" title="Link to this heading">#</a></h1>
@@ -416,6 +418,13 @@ After some research on <a class="reference external" href="http://Kaggle.com">Ka
 <li><p>Categorical/Nominal: Country names</p></li>
 <li><p>Continuous/Ratio: Life expectancy, Birthrate, Infant mortality, Minimum wage, Gross tertiary education enrollment (%), Fertility rate, Maternal mortality ratio, Physicians per thousand, Out-of-pocket health expenditure, Latitude, Gasoline price, Tax revenue (%), Agricultural land, CPI (Consumer Price Index), CPI change, Unemployment rate, Longitude, Forested area (%), GDP, GDP per capita, Social support, Inequality (gini) coefficient</p></li>
 <li><p>Ordinal: World Happiness Score</p></li>
+</ul>
+</section>
+<section id="additional-adjustments">
+<h1>Additional Adjustments<a class="headerlink" href="#additional-adjustments" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p>For figure 6 (The comparison of inequality with logged GDP per capita and their happiness for each country in 2020) and figure 7 (Correlates all kinds of variables with the happiness score for 3 different kind of GDP country groups in 2020) we grouped all countries in the following categories: poor, middle and rich. Countries in the poor categories have a logged GDP per capita &lt; 8, in the middle category the logged GDP per capita lies between 8 and 10 and the rich category has a logged GDP per capita of 10 or higher. This grouping resulted in an extra variable, Wealth Category, that could be classified as ordinal.</p></li>
+<li><p>Since GDP represents very big numbers, the GDP values in our charts are logarithmic to reduce the scale. Instead of displaying numbers ranging from millions to billions on the axes, the axes now range from approximately 8 to 11.</p></li>
 </ul>
 </section>
 
@@ -484,8 +493,9 @@ After some research on <a class="reference external" href="http://Kaggle.com">Ka
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Dataset and Preprocessing</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#data-cleaning">Data cleaning</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#data-cleaning">Data Cleaning</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#variable-desprictions">Variable Desprictions</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-adjustments">Additional Adjustments</a></li>
 </ul>
 
   </nav></div>
